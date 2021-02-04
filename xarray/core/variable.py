@@ -52,6 +52,8 @@ from .utils import (
     maybe_coerce_to_str,
 )
 
+from gt4py.storage import Storage
+
 NON_NUMPY_SUPPORTED_ARRAY_TYPES = (
     (
         indexing.ExplicitlyIndexed,
@@ -59,6 +61,7 @@ NON_NUMPY_SUPPORTED_ARRAY_TYPES = (
     )
     + dask_array_type
     + cupy_array_type
+    + (Storage,)
 )
 # https://github.com/python/mypy/issues/224
 BASIC_INDEXING_TYPES = integer_types + (slice,)  # type: ignore

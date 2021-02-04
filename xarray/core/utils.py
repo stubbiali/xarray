@@ -33,6 +33,8 @@ import pandas as pd
 
 from . import dtypes
 
+from gt4py.storage import Storage
+
 K = TypeVar("K")
 V = TypeVar("V")
 T = TypeVar("T")
@@ -259,7 +261,7 @@ def is_list_like(value: Any) -> bool:
 
 
 def is_duck_array(value: Any) -> bool:
-    if isinstance(value, np.ndarray):
+    if isinstance(value, (np.ndarray, Storage)):
         return True
     return (
         hasattr(value, "ndim")
